@@ -75,7 +75,8 @@ public class WeatherActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_weather);
-        // 初始化各控件，看到这么多初始化代码，可尝试用butterknife
+        // 初始化各控件
+        // 看到这么多初始化代码，可尝试用butterknife
         bingPicImg = (ImageView) findViewById(R.id.bing_pic_img);
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
