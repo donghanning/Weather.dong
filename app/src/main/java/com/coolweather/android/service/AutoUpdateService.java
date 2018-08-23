@@ -28,12 +28,12 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class AutoUpdateService extends Service {
-
+//onBinder( )方法作用
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
-
+//onStartCommand( )方法作用
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         updateWeather();

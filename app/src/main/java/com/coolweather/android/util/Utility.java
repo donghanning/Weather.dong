@@ -1,5 +1,6 @@
 package com.coolweather.android.util;
 /*
+ *解析和处理服务器返回的省级等数据
 * 由于服务器返回的省市县数据都是JSON格式的，本Java类就是用来解析和处理服务器返回的数据
 * */
 import android.text.TextUtils;
