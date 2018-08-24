@@ -32,6 +32,8 @@ public class Utility {
                     province.setProvinceName(provinceObject.getString("name"));
                     province.setProvinceCode(provinceObject.getInt("id"));
                     province.save();
+                    //组装成实体类对象，再调用save()方法将数据存储到数据库中
+                    //save()是DataSupport类中的方法，而Province类继承自DataSupport类
                 }
                 return true;
             } catch (JSONException e) {

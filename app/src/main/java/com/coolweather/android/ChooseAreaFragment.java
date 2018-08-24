@@ -159,6 +159,8 @@ public class ChooseAreaFragment extends Fragment {
             listView.setSelection(0);
             currentLevel = LEVEL_PROVINCE;
         } else {
+            //如果没有从数据库中读取到数据，就按照P487的组装方式组装出新的请求地址
+            //然后调用queryFromServer()方法从服务器上查询数据
             String address = "http://guolin.tech/api/china";
             queryFromServer(address, "province");
         }
@@ -211,6 +213,10 @@ public class ChooseAreaFragment extends Fragment {
 
     /**
      * 根据传入的地址和类型从服务器上查询省市县数据。
+     * 下面的方法调用sendOkHttpRequest（）方法向服务器发送请求，
+     * 响应的数据会回调到OnResponse()方法中，
+     * 然后再去调用Utility中的HandleProvinceResponse()方法来解析和处理服务器返回的数据，并存储到数据库中。
+     *
      */
     private void queryFromServer(String address, final String type) {
         showProgressDialog();
@@ -226,6 +232,7 @@ public class ChooseAreaFragment extends Fragment {
                 } else if ("county".equals(type)) {
                     result = Utility.handleCountyResponse(responseText, selectedCity.getId());
                 }
+                //解析处理完数据之后，再次调用QueryProvince（）方法重新加载省级数据
                 if (result) {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

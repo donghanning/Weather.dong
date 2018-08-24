@@ -33,7 +33,8 @@ public class AutoUpdateService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-//onStartCommand( )方法作用
+//onStartCommand( )方法作用:每八小时更新一次天气和背景图片
+//更新后的数据直接存储在SharedPreferences文件中
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         updateWeather();
@@ -101,3 +102,4 @@ public class AutoUpdateService extends Service {
     }
 
 }
+
